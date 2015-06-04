@@ -1,5 +1,7 @@
 {
   "name": "coveralls",
+  "description": "Aplicação de teste",
+  "main": "server.js",
   "description": "takes json-cov output into stdin and POSTs to coveralls.io",
   "keywords": [
     "coverage",
