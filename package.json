@@ -2,7 +2,7 @@
   "name": "coveralls",
   "description": "takes json-cov output into stdin and POSTs to coveralls.io",
   "keywords": [
-    "coverage",
+    "coverage", 
     "coveralls"
   ],
   "version": "2.11.2",
