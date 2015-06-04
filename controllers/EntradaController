@@ -1,0 +1,22 @@
+app.controller('entradasController', ['$scope', '$resource', 
+  function ($scope, $resource) {
+  var Entrada = $resource('/api/entradas');
+
+  Entrada.query(function (results) {
+    $scope.entradas = results;
+  });
+
+  $scope.entradas = []
+
+  $scope.createEntrada = function () {
+    var entrada = new Entrada();
+    entrada.descricao = $scope.descricao;
+    entrada.valor = $scope.valor;
+    entrada.dataEntrada = $scope.dataEntrada;
+    
+    entrada.$save(function (result) {
+      $scope.entradas.push(result);
+      $scope.descricao = '';
+    });
+  }
+}]);
