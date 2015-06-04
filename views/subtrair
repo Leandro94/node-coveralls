@@ -1,6 +1,6 @@
-<h3>Calculadora >> Somar</h3>
+<h3>Calculadora >> Subtrair</h3>
 
 <a href="/">Voltar</a>
 
-<% var operacao = 'somar'; %>
+<% var operacao = 'subtrair'; %>
 <% include formulario %>
