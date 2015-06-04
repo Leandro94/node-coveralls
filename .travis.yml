@@ -3,4 +3,10 @@ node_js:
   - '0.10'
   - '0.11'
 script: make test-coveralls
-
+deploy:
+  provider: heroku
+  api_key: 
+    secure: 4cecee06-87ac-4f60-bd9f-d24a691f4160
+  app: codeshipheroku
+  on:
+    repo: petrovick/node-coveralls
