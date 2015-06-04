@@ -51,8 +51,8 @@
   },
   "repository": {
     "type": "git",
-    "url": "git://github.com/cainus/node-coveralls.git"
+    "url": "git://github.com/petrovick/node-coveralls.git"
   },
-  "author": "Gregg Caines",
-  "license": "BSD"
+  "author": "Gabriel Petrovick",
+  "license": "GP"
 }
