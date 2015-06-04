@@ -5,6 +5,13 @@ var http       = require('http');
 var port       = process.env.PORT || 3000;
 var load       = require('express-load');
 var bodyParser = require('body-parser');
+var mongoq = require('mongoq');
+
+// Configurando a execução do banco MongoDB
+var COLLECTION = 'nodepivii';
+var DB = 'nodepivii';
+var db = mongoq(DB);
+var collection = db.collection(COLLECTION);
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: true}));
