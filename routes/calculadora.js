@@ -9,6 +9,6 @@ module.exports = function(app) {
 	app.post('/calcular', controller.post.calcular);
 	
 	var entrada = app.controllers.entrada;
-	app.get('/', entrada.get.index);
+	app.get('/entrada/', entrada.get.index);
 	app.post('/salvar', entrada.post.salvar);
 };
