@@ -2,29 +2,30 @@ module.exports = function() {
 	var Controller = {
 		utils: {
 			formatarResposta: function(resultado) {
-				var accounting = require('accounting');
-				var resposta   = {
-					resultado: 0.0
-				};
+//				var accounting = require('accounting');
+//				var resposta   = {
+//					resultado: 0.0
+//				};
+//				
+//				resultado = accounting.formatNumber(resultado, 2, ".", ",");
+//				resposta.resultado = resultado;
 				
-				resultado = accounting.formatNumber(resultado, 2, ".", ",");
-				resposta.resultado = resultado;
-				
-				return resposta;
+//				return resposta;
+				return resultado;
 			},
 			
 			calculos: {
 				calcular: function(parametros) {
-					var numero1 = parseFloat(parametros.numero1);
-					var numero2 = parseFloat(parametros.numero2);
+					var descricao = parametros.descricao;
+					var valor = parametros.valor;
 					
-					var resultado = Controller.utils.calculos[parametros.operacao](numero1, numero2);
+					var resultado = Controller.utils.calculos["adicionar"](descricao, valor);
 					
 					return resultado;
 				},
 				
-				somar: function(numero1, numero2) {
-					return numero1 + numero2;
+				adicionar: function(descricao, valor) {
+					return "Adicionado com sucesso.";
 				},
 				
 				subtrair: function(numero1, numero2) {
@@ -50,14 +51,9 @@ module.exports = function() {
 			
 			extrairParametros: function(body) {
 				var parametros = {
-					numero1: 0.0,
-					numero2: 0.0,
-					operacao: body.operacao
+					descricao: body.descricao,
+					valor: body.valor
 				};
-				
-				parametros.numero1 = Controller.utils.validaParametro(body.numero1);
-				parametros.numero2 = Controller.utils.validaParametro(body.numero2);
-				
 				return parametros;
 			}
 		},
@@ -67,8 +63,8 @@ module.exports = function() {
 				response.render('index');
 			},
 			
-			somar: function(request, response) {
-				response.render('somar');
+			adicionar: function(request, response) {
+				response.render('adicionar');
 			},
 			
 			subtrair: function(request, response) {
@@ -90,7 +86,7 @@ module.exports = function() {
 				var resultado  = Controller.utils.calculos.calcular(parametros);
 				var resposta   = Controller.utils.formatarResposta(resultado);
 				
-				response.render(parametros.operacao, resposta);
+				response.render("adicionar"/*parametros.operacao*/, resposta);
 			}
 		}
 	};
