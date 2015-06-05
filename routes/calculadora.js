@@ -8,7 +8,7 @@ module.exports = function(app) {
 	app.get('/dividir', controller.get.dividir);
 	app.post('/calcular', controller.post.calcular);
 	
-	var controllerEntrada = app.controllers.entradaController;
-	app.get('/', controllerEntrada.get.index);
-	app.post('/salvar', controllerEntrada.post.salvar);
+	var entrada = app.controllers.entrada;
+	app.get('/', entrada.get.index);
+	app.post('/salvar', entrada.post.salvar);
 };
