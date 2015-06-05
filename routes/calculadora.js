@@ -10,5 +10,6 @@ module.exports = function(app) {
 	
 	var entrada = app.controllers.entrada;
 	app.get('/entrada/', entrada.get.index);
+	app.get('/entrada/index', entrada.get.index);
 	app.post('/salvar', entrada.post.salvar);
 };
