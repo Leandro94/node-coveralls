@@ -13,30 +13,14 @@ module.exports = function() {
 				return resposta;
 			},
 			
-			calculos: {
-				calcular: function(parametros) {
+			entradas: {
+				salvar: function(parametros) {
 					var numero1 = parseFloat(parametros.numero1);
 					var numero2 = parseFloat(parametros.numero2);
 					
 					var resultado = Controller.utils.calculos[parametros.operacao](numero1, numero2);
 					
 					return resultado;
-				},
-				
-				somar: function(numero1, numero2) {
-					return numero1 + numero2;
-				},
-				
-				subtrair: function(numero1, numero2) {
-					return numero1 - numero2;
-				},
-				
-				multiplicar: function(numero1, numero2) {
-					return numero1 * numero2;
-				},
-				
-				dividir: function(numero1, numero2) {
-					return numero1 / numero2;
 				}
 			},
 			
@@ -74,9 +58,9 @@ module.exports = function() {
 		},
 		
 		post: {
-			calcular: function(request, response) {
+			salvar: function(request, response) {
 				var parametros = Controller.utils.extrairParametros(request.body);
-				var resultado  = Controller.utils.calculos.calcular(parametros);
+				var resultado  = Controller.utils.entradas.salvar(parametros);
 				var resposta   = Controller.utils.formatarResposta(resultado);
 				
 				response.render(parametros.operacao, resposta);
