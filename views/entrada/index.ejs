@@ -1,34 +1,8 @@
-<!DOCTYPE html>
-<html ng-app="meetupApp"> 
-  <head>
-      <meta charset="utf-8">
-      <meta http-equiv="X-UA-Compatible" content="IE=edge">
-      <title></title>
-      <meta name="description" content="">
-      <meta name="viewport" content="width=device-width, initial-scale=1">
-  </head>
-  <body>
+<h3>Entrada</h3>
 
-      <!-- Meetups View -->
-      <div ng-controller="entradasController">
-        <h1>There are {{entradas.length}} meetups</h1>
-        <ul>
-          <li ng-repeat="entrada in entradas">
-            {{entrada.descricao}}
-          </li>
-        </ul>
-        <form ng-submit="createEntrada()">
-          <input type="text" placeholder="descricao" ng-model="descricao"></input>
-          <input type="text" placeholder="valor" ng-model="valor"></input>
-          <input type="text" placeholder="Data" ng-model="dataEntrada"></input>
-          <button type="submit">Add</button>
-        </form> 
-      </div>
+<ul>
+  <li>
+    <a href="/salvar">Entrada</a>
+  </li>
+</ul>
 
-      <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.16/angular.js"></script>
-      <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.16/angular-resource.js"></script>
-
-      <script type="text/javascript" src="/js/app.js"></script>
-      <script type="text/javascript" src="/js/controllers/entradas-Controller.js"></script>
-  </body>
-</html>
