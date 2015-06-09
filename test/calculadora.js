@@ -165,53 +165,17 @@ describe('Calculadora', function() {
 		describe('Multiplicar', function() {
 			it('Deveria retornar 4 quando multiplicar 1 por 4.', function() {
 				var parametros = {
-					numero1: 1,
-					numero2: 4,
-					operacao: 'multiplicar'
+					descricao: "Foi",
+					valor: 4,
+					operacao: 'adicionar'
+					//operacao: 'multiplicar'
 				};
 				
 				var resultado = controller.utils.calculos.calcular(parametros);
 				
-				resultado.should.be.a.Number;
-				resultado.should.be.equal(4);
-			});
-		});
-		
-		describe('Dividir', function() {
-			it('Deveria retornar 0.25 quando dividir 1 por 4.', function() {
-				var parametros = {
-					numero1: 1,
-					numero2: 4,
-					operacao: 'dividir'
-				};
-				
-				var resultado = controller.utils.calculos.calcular(parametros);
-				
-				resultado.should.be.a.Number;
-				resultado.should.be.equal(0.25);
+				resultado.should.be.equal("Adicionado com sucesso.");
 			});
 		});
 	});
-	
-	describe('Testa se as funções utilitárias funcionam.', function() {
-		describe('Controller.utils.formatarResposta()', function() {
-			it('Deveria retornar 1,56 quando passado 1.55555558.', function() {
-				var resultado = 1.55555558;
-				var formatado = controller.utils.formatarResposta(resultado);
-				
-				formatado.should.be.an.Object;
-				formatado.should.have.property('resultado');
-				formatado.resultado.should.be.equal('1,56');
-			});
-			
-			it('Deveria retornar 0,00 quando passado undefined.', function() {
-				var resultado = undefined;
-				var formatado = controller.utils.formatarResposta(resultado);
-				
-				formatado.should.be.an.Object;
-				formatado.should.have.property('resultado');
-				formatado.resultado.should.be.equal('0,00');
-			});
-		});
-	});
+
 });
