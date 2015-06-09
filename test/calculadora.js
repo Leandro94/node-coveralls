@@ -144,15 +144,17 @@ describe('Calculadora', function() {
 		describe('Somar', function() {
 			it('Deveria retornar 5 quando somar 1 e 4.', function() {
 				var parametros = {
-					numero1: 1,
-					numero2: 4,
+					descricao: "Foi",
+					valor: 4,
 					operacao: 'adicionar'
 				};
 				
 				var resultado = controller.utils.calculos.calcular(parametros);
 				
-				resultado.should.be.a.Number;
-				resultado.should.be.equal(5);
+				resultado.should.be.equal("Adicionado com sucesso.");
+
+
+
 			});
 		});
 		
