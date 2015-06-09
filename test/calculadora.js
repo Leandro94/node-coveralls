@@ -7,7 +7,7 @@ describe('Calculadora', function() {
 				var numero1 = 1;
 				var numero2 = 4;
 				
-				var resultado = controller.utils.calculos.somar(numero1, numero2);
+				var resultado = controller.utils.calculos.adicionar(numero1, numero2);
 				
 				resultado.should.be.a.Number;
 				resultado.should.be.equal(5);
@@ -17,7 +17,7 @@ describe('Calculadora', function() {
 				var numero1 = 1;
 				var numero2 = -4;
 				
-				var resultado = controller.utils.calculos.somar(numero1, numero2);
+				var resultado = controller.utils.calculos.adicionar(numero1, numero2);
 				
 				resultado.should.be.a.Number;
 				resultado.should.be.equal(-3);
@@ -27,7 +27,7 @@ describe('Calculadora', function() {
 				var numero1 = -1;
 				var numero2 = 4;
 				
-				var resultado = controller.utils.calculos.somar(numero1, numero2);
+				var resultado = controller.utils.calculos.adicionar(numero1, numero2);
 				
 				resultado.should.be.a.Number;
 				resultado.should.be.equal(3);
@@ -37,7 +37,7 @@ describe('Calculadora', function() {
 				var numero1 = -1;
 				var numero2 = -4;
 				
-				var resultado = controller.utils.calculos.somar(numero1, numero2);
+				var resultado = controller.utils.calculos.adicionar(numero1, numero2);
 				
 				resultado.should.be.a.Number;
 				resultado.should.be.equal(-5);
@@ -147,7 +147,7 @@ describe('Calculadora', function() {
 				var parametros = {
 					numero1: 1,
 					numero2: 4,
-					operacao: 'somar'
+					operacao: 'adicionar'
 				};
 				
 				var resultado = controller.utils.calculos.calcular(parametros);
