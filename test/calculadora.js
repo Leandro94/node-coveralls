@@ -4,43 +4,41 @@ describe('Calculadora', function() {
 	describe('Testa se as operações-núcleo funcionam corretamente.', function() {
 		describe('Somar', function() {
 			it('Deveria retornar 5 quando for passado 1 e 4.', function() {
-				var numero1 = 1;
-				var numero2 = 4;
+				
+				var mudaraqui = "Adicionado com sucesso.";
 				
 				var resultado = controller.utils.calculos.adicionar(numero1, numero2);
 				
 				resultado.should.be.a.Number;
-				resultado.should.be.equal(5);
+				resultado.should.be.equal(mudaraqui);
 			});
 			
 			it('Deveria retornar -3 quando for passado 1 e -4.', function() {
-				var numero1 = 1;
-				var numero2 = -4;
 				
+				var mudaraqui = "Adicionado com sucesso.";
+
 				var resultado = controller.utils.calculos.adicionar(numero1, numero2);
 				
 				resultado.should.be.a.Number;
-				resultado.should.be.equal(-3);
+				resultado.should.be.equal(mudaraqui);
 			});
 			
 			it('Deveria retornar 3 quando for passado -1 e 4.', function() {
-				var numero1 = -1;
-				var numero2 = 4;
 				
+				var mudaraqui = "Adicionado com sucesso.";
 				var resultado = controller.utils.calculos.adicionar(numero1, numero2);
 				
 				resultado.should.be.a.Number;
-				resultado.should.be.equal(3);
+				resultado.should.be.equal(mudaraqui);
 			});
 			
 			it('Deveria retornar -5 quando for passado -1 e -4.', function() {
-				var numero1 = -1;
-				var numero2 = -4;
 				
+				var mudaraqui = "Adicionado com sucesso.";
 				var resultado = controller.utils.calculos.adicionar(numero1, numero2);
 				
 				resultado.should.be.a.Number;
-				resultado.should.be.equal(-5);
+				resultado.should.be.equal(mudaraqui);
 			});
 		});
 		
