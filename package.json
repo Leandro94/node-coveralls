@@ -51,7 +51,8 @@
     "mongodb-tools": "~1.0"
   },
   "engines": {
-    "node": ">=0.8.6"
+    "node": "0.12.2"
+    //"node": ">=0.8.6"
   },
   "main": "index.js",
   "directories": {

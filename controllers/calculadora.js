@@ -2,16 +2,15 @@ module.exports = function() {
 	var Controller = {
 		utils: {
 			formatarResposta: function(resultado) {
-//				var accounting = require('accounting');
-//				var resposta   = {
-//					resultado: 0.0
-//				};
-//				
-//				resultado = accounting.formatNumber(resultado, 2, ".", ",");
-//				resposta.resultado = resultado;
+				//var accounting = require('accounting');
+				var resposta   = {
+					resultado: 0.0
+				};
 				
-//				return resposta;
-				return resultado;
+				//resultado = accounting.formatNumber(resultado, 2, ".", ",");
+				resposta.resultado = resultado;
+				
+				return resposta;
 			},
 			
 			calculos: {
@@ -25,6 +24,7 @@ module.exports = function() {
 				},
 				
 				adicionar: function(descricao, valor) {
+
 					return "Adicionado com sucesso.";
 				},
 				
@@ -52,7 +52,8 @@ module.exports = function() {
 			extrairParametros: function(body) {
 				var parametros = {
 					descricao: body.descricao,
-					valor: body.valor
+					valor: body.valor,
+					operacao: body.operacao
 				};
 				return parametros;
 			}
@@ -86,7 +87,7 @@ module.exports = function() {
 				var resultado  = Controller.utils.calculos.calcular(parametros);
 				var resposta   = Controller.utils.formatarResposta(resultado);
 				
-				response.render("adicionar"/*parametros.operacao*/, resposta);
+				response.render(parametros.operacao, resposta);
 			}
 		}
 	};

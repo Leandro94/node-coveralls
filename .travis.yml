@@ -7,7 +7,7 @@ deploy:
   provider: heroku
   api_key:
     secure: 4cecee06-87ac-4f60-bd9f-d24a691f4160
-  app: codeshipheroku
+  app: travisheroku
   on:
     repo: petrovick/node-coveralls
 before_install:
