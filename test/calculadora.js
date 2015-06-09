@@ -9,7 +9,7 @@ describe('Calculadora', function() {
 				
 				var resultado = controller.utils.calculos.adicionar(numero1, numero2);
 				
-				resultado.should.be.a.Number;
+				//resultado.should.be.a.Number;
 				resultado.should.be.equal(mudaraqui);
 			});
 			
