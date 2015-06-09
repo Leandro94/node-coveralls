@@ -16,8 +16,10 @@ describe('Calculadora', function() {
 			it('Deveria retornar -3 quando for passado 1 e -4.', function() {
 				
 				var mudaraqui = "Adicionado com sucesso.";
+				var descricao = "Foi";
+				var valor = 123
 
-				var resultado = controller.utils.calculos.adicionar(numero1, numero2);
+				var resultado = controller.utils.calculos.adicionar(descricao, valor);
 				
 				resultado.should.be.a.Number;
 				resultado.should.be.equal(mudaraqui);
