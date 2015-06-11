@@ -13,6 +13,19 @@ var bodyParser = require('body-parser');
 //var db = mongoq(DB);
 //var collection = db.collection(COLLECTION);
 
+
+var MongoClient = require('mongodb').MongoClient
+    , format = require('util').format;
+MongoClient.connect('mongodb://petrovick:123@ds043002.mongolab.com:43002/nodepivii', function (err, db) {
+    if (err) {
+        throw err;
+    } else {
+        console.log("successfully connected to the database");
+    }
+    db.close();
+});
+
+
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: true}));
 

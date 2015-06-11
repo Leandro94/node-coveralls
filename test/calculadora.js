@@ -4,12 +4,13 @@ describe('Calculadora', function() {
 	describe('Testa se as operações-núcleo funcionam corretamente.', function() {
 		describe('Somar', function() {
 			it('Deveria retornar 5 quando for passado 1 e 4.', function() {
-				
-				var mudaraqui = "Adicionado com sucesso.";
-				var descricao = "Foi";
-				var valor = 123;
-				var resultado = controller.utils.calculos.adicionar(descricao, valor);
-				//resultado.should.be.a.Number;
+				var parametros = {
+					descricao: "Isso",
+					valor: 1
+				};
+				var mudaraqui = "Adiocionado com sucesso;"
+
+				var resultado = controller.utils.calculos.calcular(parametros);
 				resultado.should.be.equal(mudaraqui);
 			});
 			
@@ -148,13 +149,8 @@ describe('Calculadora', function() {
 					valor: 4,
 					operacao: 'adicionar'
 				};
-				
 				var resultado = controller.utils.calculos.calcular(parametros);
-				
 				resultado.should.be.equal("Adicionado com sucesso.");
-
-
-
 			});
 		});
 		

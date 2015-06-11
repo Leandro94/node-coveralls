@@ -6,7 +6,16 @@ module.exports = function() {
 				var resposta   = {
 					resultado: 0.0
 				};
+				//resultado = accounting.formatNumber(resultado, 2, ".", ",");
+				resposta.resultado = resultado;
 				
+				return resposta;
+			},
+			formatarRespostaLista: function(resultado) {
+				//var accounting = require('accounting');
+				var resposta   = {
+					resultado: 0.0
+				};
 				//resultado = accounting.formatNumber(resultado, 2, ".", ",");
 				resposta.resultado = resultado;
 				
@@ -15,21 +24,51 @@ module.exports = function() {
 			
 			calculos: {
 				calcular: function(parametros) {
-					var descricao = parametros.descricao;
-					var valor = parametros.valor;
-					
-					var resultado = Controller.utils.calculos["adicionar"](descricao, valor);
-					
-					return resultado;
+					var erro = Controller.utils.validaParametro(parametros);
+					if(erro == "")
+					{
+						var descricao = parametros.descricao;
+						var valor = parametros.valor;
+						
+						var resultado = Controller.utils.calculos["adicionar"](descricao, valor);
+						
+						return resultado;
+					}
+					return erro;
 				},
 				
 				adicionar: function(descricao, valor) {
+					var MongoClient = require('mongodb').MongoClient
+					    , format = require('util').format;
+					MongoClient.connect('mongodb://petrovick:123@ds043002.mongolab.com:43002/nodepivii', function(err, db) {
+					    if(err) throw err;
 
-					return "Adicionado com sucesso.";
+					    var collection = db.collection('nodepivii');
+					    collection.insert({descricao:descricao, valor:valor}, function(err, docs) {
+					        //collection.count(function(err, count) {
+					        //    console.log(format("count = %s", count));
+					        //    db.close();
+					        //});
+					    });
+						return "Adicionado com sucesso.";
+					});
+					//return "Adicionado com sucesso.";
 				},
 				
-				subtrair: function(numero1, numero2) {
-					return numero1 - numero2;
+				todos: function(query, where, callback) {
+					var MongoClient = require('mongodb').MongoClient
+					    , format = require('util').format;
+					MongoClient.connect('mongodb://petrovick:123@ds043002.mongolab.com:43002/nodepivii', function(err, db) {
+					    //if(err) throw err;
+
+					    var collection = db.collection('nodepivii');
+
+					    collection.find({}, function(e, r)
+					    	{
+					    		callback(e, r);
+					    	});
+
+					});
 				},
 				
 				multiplicar: function(numero1, numero2) {
@@ -41,12 +80,19 @@ module.exports = function() {
 				}
 			},
 			
-			validaParametro: function(parametro) {
-				if(parametro && parametro !== '') {
-					return parseFloat(parametro);
-				}
-				
-				return 0.0;
+			validaParametro: function(parametros) {
+				var descricao = parametroa.descricao;
+
+				var valor = parametroa.valor;
+				if(descricao == "")
+					return "Descricao não pode ser vazio.";
+				var descricaoMaiusculo = descricao.toUpperCase();
+				if(descricao.chatAt(0) != descricaoMaiusculo.charAt(0))
+					return "Primeira letra deve ser maiúscula";
+				if(valor == 0)
+					return "Valor não pode ser 0";
+				if(valor < 0)
+					return "Valor não pode ser negativo";
 			},
 			
 			extrairParametros: function(body) {
@@ -61,7 +107,27 @@ module.exports = function() {
 		
 		get: {
 			index: function(request, response) {
-				response.render('index');
+				var parametros = Controller.utils.extrairParametros(request.body);
+
+				var MongoClient = require('mongodb').MongoClient
+				    , format = require('util').format;
+				MongoClient.connect('mongodb://petrovick:123@ds043002.mongolab.com:43002/nodepivii', function(err, db) {
+				    //if(err) throw err;
+
+				    var collection = db.collection('nodepivii');
+
+				    collection.find().toArray(function(e, r)
+				    	{
+				    		var resposta = Controller.utils.formatarRespostaLista(r);
+				    		response.render("index", resposta);
+				    	});
+
+				});
+
+				//Controller.utils.calculos.todos();
+				//var resposta   = Controller.utils.formatarResposta(resultado);
+				
+				
 			},
 			
 			adicionar: function(request, response) {
@@ -85,9 +151,21 @@ module.exports = function() {
 			calcular: function(request, response) {
 				var parametros = Controller.utils.extrairParametros(request.body);
 				var resultado  = Controller.utils.calculos.calcular(parametros);
-				var resposta   = Controller.utils.formatarResposta(resultado);
 				
-				response.render(parametros.operacao, resposta);
+				var MongoClient = require('mongodb').MongoClient
+				    , format = require('util').format;
+				MongoClient.connect('mongodb://petrovick:123@ds043002.mongolab.com:43002/nodepivii', function(err, db) {
+				    //if(err) throw err;
+
+				    var collection = db.collection('nodepivii');
+
+				    collection.find().toArray(function(e, r)
+				    	{
+				    		var resposta = Controller.utils.formatarRespostaLista(r);
+				    		response.render("index", resposta);
+				    	});
+
+				});
 			}
 		}
 	};

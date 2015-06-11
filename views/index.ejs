@@ -1,16 +1,16 @@
 <h3>Calculadora(s), iii</h3>
 
-<ul>
-	<li>
-		<a href="/adicionar">Adicionar</a>
-	</li>
-	<li>
-		<a href="/subtrair">Subtrair</a>
-	</li>
-	<li>
-		<a href="/multiplicar">Multiplicar</a>
-	</li>
-	<li>
-		<a href="/dividir">Dividir</a>
-	</li>
-</ul>
+<form action="/calcular" method="post">
+	<label>Descrição</label>
+	<input type="text" name="descricao" />
+	<label>Valor</label>
+	<input type="text" name="valor" />
+	<input type="submit" value="Calcular" />
+</form>
+
+<p>Lista</p>
+
+<% if(typeof(resultado) != 'undefined') { %>
+	<p>O resultado é <%= JSON.stringify(resultado) %>.</p>
+	
+<% } %>
