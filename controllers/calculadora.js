@@ -81,7 +81,7 @@ module.exports = function() {
 			},
 			
 			validaParametro: function(parametros) {
-				var descricao = parametroa.descricao;
+				var descricao = parametros.descricao;
 
 				var valor = parametros.valor;
 				if(descricao == "")
