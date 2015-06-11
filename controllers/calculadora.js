@@ -83,7 +83,7 @@ module.exports = function() {
 			validaParametro: function(parametros) {
 				var descricao = parametroa.descricao;
 
-				var valor = parametroa.valor;
+				var valor = parametros.valor;
 				if(descricao == "")
 					return "Descricao não pode ser vazio.";
 				var descricaoMaiusculo = descricao.toUpperCase();
