@@ -20,5 +20,6 @@ before_install:
   - npm install request
   - npm install js-yaml
   - npm install ejs
+  - npm install mongodb
 after_install:
   - node server.js
