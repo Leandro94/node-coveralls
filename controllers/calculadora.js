@@ -87,7 +87,7 @@ module.exports = function() {
 				if(descricao == "")
 					return "Descricao não pode ser vazio.";
 				var descricaoMaiusculo = descricao.toUpperCase();
-				if(descricao.chatAt(0) != descricaoMaiusculo.charAt(0))
+				if(descricao.charAt(0) != descricaoMaiusculo.charAt(0))
 					return "Primeira letra deve ser maiúscula";
 				if(valor == 0)
 					return "Valor não pode ser 0";
