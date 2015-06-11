@@ -20,7 +20,7 @@ describe('Calculadora', function() {
 				var valor = 123;
 				var resultado = controller.utils.calculos.adicionar(descricao, valor);
 				
-				resultado.should.be.a.Number;
+				;
 				resultado.should.be.equal(mudaraqui);
 			});
 			
@@ -50,7 +50,6 @@ describe('Calculadora', function() {
 				
 				var resultado = controller.utils.calculos.subtrair(numero1, numero2);
 				
-				resultado.should.be.a.Number;
 				resultado.should.be.equal(2);
 			});
 		});
@@ -62,7 +61,6 @@ describe('Calculadora', function() {
 				
 				var resultado = controller.utils.calculos.multiplicar(numero1, numero2);
 				
-				resultado.should.be.a.Number;
 				resultado.should.be.equal(4);
 			});
 			
@@ -72,7 +70,6 @@ describe('Calculadora', function() {
 				
 				var resultado = controller.utils.calculos.multiplicar(numero1, numero2);
 				
-				resultado.should.be.a.Number;
 				resultado.should.be.equal(-4);
 			});
 			
@@ -82,7 +79,6 @@ describe('Calculadora', function() {
 				
 				var resultado = controller.utils.calculos.multiplicar(numero1, numero2);
 				
-				resultado.should.be.a.Number;
 				resultado.should.be.equal(-4);
 			});
 			
@@ -92,7 +88,6 @@ describe('Calculadora', function() {
 				
 				var resultado = controller.utils.calculos.multiplicar(numero1, numero2);
 				
-				resultado.should.be.a.Number;
 				resultado.should.be.equal(4);
 			});
 		});
@@ -104,7 +99,6 @@ describe('Calculadora', function() {
 				
 				var resultado = controller.utils.calculos.dividir(numero1, numero2);
 				
-				resultado.should.be.a.Number;
 				resultado.should.be.equal(0.25);
 			});
 			
@@ -114,7 +108,6 @@ describe('Calculadora', function() {
 				
 				var resultado = controller.utils.calculos.dividir(numero1, numero2);
 				
-				resultado.should.be.a.Number;
 				resultado.should.be.equal(-0.25);
 			});
 			
@@ -124,7 +117,7 @@ describe('Calculadora', function() {
 				
 				var resultado = controller.utils.calculos.dividir(numero1, numero2);
 				
-				resultado.should.be.a.Number;
+				;
 				resultado.should.be.equal(-0.25);
 			});
 			
@@ -134,7 +127,7 @@ describe('Calculadora', function() {
 				
 				var resultado = controller.utils.calculos.dividir(numero1, numero2);
 				
-				resultado.should.be.a.Number;
+				;
 				resultado.should.be.equal(0.25);
 			});
 		});
