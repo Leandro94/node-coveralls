@@ -19,7 +19,7 @@ describe('Calculadora', function() {
 				var descricao = "Foi";
 				var valor = 123;
 				var resultado = controller.utils.calculos.adicionar(descricao, valor);
-				resultado.should.be.equal(mudaraqui);
+				(mudaraqui == resultado).should.be.true;
 			});
 			
 			it('Deveria retornar 3 quando for passado -1 e 4.', function() {
@@ -28,7 +28,7 @@ describe('Calculadora', function() {
 				var descricao = "Foi";
 				var valor = 123;
 				var resultado = controller.utils.calculos.adicionar(descricao, valor);
-				resultado.should.be.equal(mudaraqui);
+				(mudaraqui == resultado).should.be.true;
 			});
 			
 			it('Deveria retornar -5 quando for passado -1 e -4.', function() {
@@ -37,7 +37,7 @@ describe('Calculadora', function() {
 				var descricao = "Foi";
 				var valor = 123;
 				var resultado = controller.utils.calculos.adicionar(descricao, valor);
-				resultado.should.be.equal(mudaraqui);
+				(mudaraqui == resultado).should.be.true;
 			});
 		});
 	});
@@ -51,7 +51,8 @@ describe('Calculadora', function() {
 					operacao: 'adicionar'
 				};
 				var resultado = controller.utils.calculos.calcular(parametros);
-				resultado.should.be.equal("Adicionado com sucesso.");
+				var mudaraqui = "Adicionado com sucesso.";
+				(mudaraqui == resultado).should.be.true;
 			});
 		});
 		
