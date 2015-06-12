@@ -75,9 +75,6 @@ module.exports = function() {
 					return numero1 * numero2;
 				},
 				
-				dividir: function(numero1, numero2) {
-					return numero1 / numero2;
-				}
 			},
 			
 			validaParametro: function(parametros) {
@@ -130,20 +127,9 @@ module.exports = function() {
 				
 			},
 			
-			adicionar: function(request, response) {
-				response.render('adicionar');
-			},
-			
-			subtrair: function(request, response) {
-				response.render('subtrair');
-			},
 			
 			multiplicar: function(request, response) {
 				response.render('multiplicar');
-			},
-			
-			dividir: function(request, response) {
-				response.render('dividir');
 			}
 		},
 		
