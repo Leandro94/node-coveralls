@@ -69,12 +69,7 @@ module.exports = function() {
 					    	});
 
 					});
-				},
-				
-				multiplicar: function(numero1, numero2) {
-					return numero1 * numero2;
-				},
-				
+				}
 			},
 			
 			validaParametro: function(parametros) {
@@ -120,16 +115,6 @@ module.exports = function() {
 				    	});
 
 				});
-
-				//Controller.utils.calculos.todos();
-				//var resposta   = Controller.utils.formatarResposta(resultado);
-				
-				
-			},
-			
-			
-			multiplicar: function(request, response) {
-				response.render('multiplicar');
 			}
 		},
 		
