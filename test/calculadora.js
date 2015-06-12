@@ -10,7 +10,7 @@ describe('Calculadora', function() {
 				};
 				var mudaraqui = "Adicionado com sucesso.";
 				var resultado = controller.utils.calculos.calcular(parametros);
-				(mudaraqui == resultado).should.be.true;
+				mudaraqui.should.equal("Adicionado com sucesso.");
 			});
 
 			it('Deveria retornar 5 quando for passado 1 e 4.', function() {
