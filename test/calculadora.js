@@ -13,11 +13,18 @@ describe('Calculadora', function() {
 				mudaraqui.should.equal("Adicionado com sucesso.");
 			});
 
-			it('Deveria retornar 5 quando for passado 1 e 4.', function() {
+			it('Deveria testar formatarResposta.', function() {
 				var resultado = "a";
 				var resposta = controller.utils.formatarResposta(resultado);
 				(resposta.resultado == resultado).should.be.true;
 			});
+
+			it('Deveria testar formatarRespostaLista.', function() {
+				var resultado = "a";
+				var resposta = controller.utils.formatarRespostaLista(resultado);
+				(resposta.resultado == resultado).should.be.true;
+			});
+
 			
 		});
 	});
