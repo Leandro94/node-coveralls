@@ -9,8 +9,13 @@
 </form>
 
 <p>Lista</p>
-
+<table>
+	<% resultado.forEach(function(contato) { %>
+		<tr>
+			<td><%- contato.descricao %></td>
+		</tr>
+	<% }) %>
+</table>
 <% if(typeof(resultado) != 'undefined') { %>
 	<p>O resultado é <%= JSON.stringify(resultado) %>.</p>
-	
 <% } %>
