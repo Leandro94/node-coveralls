@@ -11,7 +11,7 @@ describe('Calculadora', function() {
 				};
 				var req = 
 				{
-					body = parametros
+					body: parametros
 				};
 				var resposta = usuarios.update(req)
 				resposta.mensagem.info.should.equal("Usuário cadastrado com sucesso!");
