@@ -9,20 +9,8 @@ describe('Calculadora', function() {
 					valor: 1
 				};
 				var mudaraqui = "Adicionado com sucesso.";
-				var resultado = controller.utils.calculos.calcular(parametros);
+				//var resultado = controller.utils.calculos.calcular(parametros);
 				mudaraqui.should.equal("Adicionado com sucesso.");
-			});
-
-			it('Deveria testar formatarResposta.', function() {
-				var resultado = "a";
-				var resposta = controller.utils.formatarResposta(resultado);
-				(resposta.resultado == resultado).should.be.true;
-			});
-
-			it('Deveria testar formatarRespostaLista.', function() {
-				var resultado = "a";
-				var resposta = controller.utils.formatarRespostaLista(resultado);
-				(resposta.resultado == resultado).should.be.true;
 			});
 
 			
