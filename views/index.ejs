@@ -1,15 +1,29 @@
 <h3>Calculadora(s), ii</h3>
 
-<form action="/calcular" method="post">
-	<label>Descrição</label>
-	<input type="text" name="descricao" />
-	<label>Valor</label>
-	<input type="text" name="valor" />
-	<input type="submit" value="Calcular" />
+<form action="/insert" method="post">
+	<label>Nome</label>
+	<input type="text" name="nome" id="nome" />
+	<label>Login</label>
+	<input type="text" name="login" id="login" />
+	<label>Senha</label>
+	<input type="text" name="login" id="senha" />
+	<input type="submit" id="buscar" value="Salvar" />
 </form>
 
+
+
 <p>Lista</p>
-<% if(typeof(resultado) != 'undefined') { %>
-	<p>O resultado é <%= JSON.stringify(resultado) %>.</p>
+<table id="tabela">
+<tr>
+	<th>Descrição</th>
+	<th>Valor</th>
+	<th>Excluir</th>
+</tr>
+<% for(var i=0; i < resultado.length; i++) { %>
+   <tr>
+     <td><%= resultado[i].descricao %></td>
+     <td><%= resultado[i].valor %></td>
+     <td><a class="remover" href="/deletar?_id=<%= resultado[i]._id%>">X</td>
+   </tr>
 <% } %>
-	
+</table>

@@ -4,7 +4,13 @@ var path       = require('path');
 var http       = require('http');
 var port       = process.env.PORT || 3000;
 var load       = require('express-load');
+var mongoose = require('mongoose');
 var bodyParser = require('body-parser');
+var flash    = require('express-flash');
+var multer         = require('multer');
+var errorHandler   = require('errorhandler');
+var cookie         = require('cookie-parser');
+var session 			 = require('express-session');
 //var mongoq = require('mongoq');
 
 // Configurando a execução do banco MongoDB
@@ -14,25 +20,30 @@ var bodyParser = require('body-parser');
 //var collection = db.collection(COLLECTION);
 
 
-var MongoClient = require('mongodb').MongoClient
-    , format = require('util').format;
-MongoClient.connect('mongodb://petrovick:123@ds043002.mongolab.com:43002/nodepivii', function (err, db) {
-    if (err) {
-        throw err;
-    } else {
-        console.log("successfully connected to the database");
-    }
-    db.close();
-});
 
+
+mongoose.connect('mongodb://petrovick:123@ds043002.mongolab.com:43002/nodepivii', function(err){
+  if (err){
+    console.log('Erro ao conectar no mongodb: '+err);
+  }
+});
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: true}));
+app.use(multer());
+
+app.use(cookie());
+app.use(session({ resave: true,
+                  saveUninitialized: true,
+                  secret: 'uwotm8waibtec' }));
+                  
+app.use(flash());
 
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
 
-load('controllers')
+load('models')
+	.then('controllers')
 	.then('routes')
 	.into(app);
 

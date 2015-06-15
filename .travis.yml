@@ -21,5 +21,12 @@ before_install:
   - npm install js-yaml
   - npm install ejs
   - npm install mongodb
+  - npm install mongoose
+  - npm install express-session
+  - npm install express-flash
+  - npm install moment
+  - npm install multer
+  - npm install errorhandler
+  - npm install cookie-parser
 after_install:
   - node server.js
