@@ -2,11 +2,12 @@ module.exports = {
 	"demonstração": function(client) {
 		client
 			.url("http://localhost:3000/")
-			.setValue("#descricao", "nightwatch descricao")
-			.setValue("#valor", "1234567890")
+			.setValue("#nome", "Nome")
+			.setValue("#login", "Login")
+			.setValue("#senha", "Senha")
 			.click("#buscar")
 			.pause(3000)
-			.assert.valueContains("#tabela tr", "Muita 2")
+			.assert.containsText("#mensagem", "Usuário cadastrado com sucesso!")
 			.end();
 	}
 };
