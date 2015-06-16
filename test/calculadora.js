@@ -1,4 +1,4 @@
-var controller = require('../controllers/calculadora.js')();
+var controller = require('../controllers/usuarios.js')();
 
 describe('Calculadora', function() {
 	describe('Testa se as operações-núcleo funcionam corretamente.', function() {
@@ -13,8 +13,14 @@ describe('Calculadora', function() {
 				mudaraqui.should.equal("Adicionado com sucesso.");
 			});
 
-			
+			it("testando", function(){
+				var callback = sinon.spy();
+			    var proxy = controller.inserirUsuario(callback);
+			    proxy();
+			    assert(callback.called);
+			});
 		});
 	});
+
 
 });
