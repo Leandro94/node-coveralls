@@ -8,6 +8,7 @@ module.exports = function(app){
 		
 		inserirUsuario: function(usuario, req, res)
 		{
+
 			var model = usuario;
 			model.save(function(err){
 				var mensagem = "Usuário cadastrado com sucesso!";
@@ -20,13 +21,9 @@ module.exports = function(app){
 			});
 		},
 
-		testndo: function()
-		{
-			inserirUsuario(mock);
-		},
-
 		atualizarUsuario: function(usuario, req, res)
 		{
+			
 			Usuario.findById(usuario._id, function(err, data){
 					if(err){
 						console.log(err);

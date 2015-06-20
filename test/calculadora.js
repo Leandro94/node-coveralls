@@ -14,10 +14,16 @@ describe('Calculadora', function() {
 			});
 
 			it("testando", function(){
-				var callback = sinon.spy();
-			    var proxy = controller.inserirUsuario(callback);
-			    proxy();
-			    assert(callback.called);
+				var req = {};
+				var res = {};
+				var usuario = new Usuario();
+				usuario.nome = "Gabriel";
+				usuario.login = "login";
+				usuario.senha = "senha";
+				controller.UsuarioController.inserirUsuario(usuario, req, res);
+				if(typeof(usuario._id) == 'undefined')
+					console.log('Funcionou');
+
 			});
 		});
 	});
